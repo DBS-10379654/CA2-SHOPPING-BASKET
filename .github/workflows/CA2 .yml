@@ -1,0 +1,194 @@
+
+#A shopping basket contains different products, each with an SKU and a quantity.
+#A method to add or remove items from the basket should be provided, together with a means of outputting the basket contents details.
+#Each product has a description, seller, price and currency, and is stored according to its SKU in a global products datastructure.
+#Create a basket class, and include a method to value the basket in EUR. You may use a global variable rates in this method, or try:
+#https://exchangeratesapi.io/ .
+#https://github.com/DBS-10379654/CA2-SHOPPING-BASKET/new/master?filename=.github%2Fworkflows%2Fblank.yml&workflow_template=blank
+
+class Basket:
+    def __init__(self):
+        self.__balance={}
+
+    def add(self,sku,qty):
+        if sku not in self.__balance:
+            self.__balance[sku]=qty
+        else:
+            self.__balance[sku]=self.__balance[sku]+qty
+        
+    def getBalance(self,sku):
+        if sku not in self.__balance:
+            return 0
+        return self.__balance[sku]
+        
+p=Basket()
+p.add('bread',3)
+
+p.getBalance('bread')
+3
+
+p.add('bread',4)
+
+p.getBalance('bread')
+7
+        
+p.getBalance('milk')
+0
+
+class Basket:
+    def __init__(self):
+        self.__balance={}
+
+    def add(self,sku,qty):
+        self.__balance[sku]=self.getBalance(sku)+qty
+      
+    def remove(self,sku,qty):
+        self.__balance[sku]=self.getBalance(sku)-qty
+        
+    def getBalance(self,sku):
+        if sku not in self.__balance:
+            return 0
+        return self.__balance[sku]
+        
+p=Basket()
+p.add('milk',4)
+
+p.getBalance('milk')
+4
+
+p.add('milk',5)
+
+p.getBalance('milk')
+9
+
+p.remove('milk',1)
+
+p.getBalance('milk')
+8
+
+p.remove('milk',2)
+
+p.getBalance('milk')
+6
+
+p.add('eggs',6)
+
+p.getBalance('eggs')
+6
+
+prices={'bread':2.00,'milk':1.00,'eggs':3.00}
+
+class Basket:
+    def __init__(self):
+        self.__balance={}
+
+    def add(self,sku,qty):
+        self.__balance[sku]=self.getBalance(sku)+qty
+      
+    def remove(self,sku,qty):
+        self.__balance[sku]=self.getBalance(sku)-qty
+        
+    def getBalance(self,sku):
+        if sku not in self.__balance:
+            return 0
+        return self.__balance[sku]
+    
+    def value(self):
+        total=0
+        for k,v in self.__balance.items():
+            total+=v*prices[k]
+        return total
+        
+p=Basket()
+p.add('bread',2)
+
+p.getBalance('bread')
+2
+
+p.add('milk',3)
+
+p.getBalance('milk')
+3
+
+p.add('eggs',5)
+
+p.getBalance('eggs')
+5        
+        
+p.value()
+22.0        
+        
+products = {"sku abc123, bread, gbp, quantity = 2", "sku def456, milk, usd, quantity = 3", "sku ghi789, eggs, eur, quantity = 5"}
+
+def displayProducts():
+    for i in products:
+        print (i)
+        
+displayProducts()
+sku abc123, bread, gbp, quantity = 2
+sku ghi789, eggs, eur, quantity = 5
+sku def456, milk, usd, quantity = 3
+
+fx_rates_v_euro = {"GBP=0.87295, USD=1.2234"}
+
+import json
+import requests
+fxresults=requests.get('https://exchangeratesapi.io/')
+
+fxresults.content
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+           
